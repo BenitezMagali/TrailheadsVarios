@@ -1,0 +1,16 @@
+{
+  "status": 0,
+  "result": {
+    "createdById": "0055f000003xsg7AAA",
+    "createdByName": "Magalí Benitez",
+    "createdDate": "2021-10-20T16:13:44.000Z",
+    "fileName": "messageChannels/BearListUpdate.messageChannel",
+    "fullName": "BearListUpdate",
+    "id": "1295f000000TOoBAAW",
+    "lastModifiedById": "0055f000003xsg7AAA",
+    "lastModifiedByName": "Magalí Benitez",
+    "lastModifiedDate": "2021-10-20T16:13:44.000Z",
+    "manageableState": "unmanaged",
+    "type": "LightningMessageChannel"
+  }
+}

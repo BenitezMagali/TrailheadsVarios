@@ -1,0 +1,31 @@
+{
+  "status": 0,
+  "result": [
+    {
+      "createdById": "0055f000003xsg7AAA",
+      "createdByName": "Magalí Benitez",
+      "createdDate": "2021-10-20T14:48:23.000Z",
+      "fileName": "flows/net_promoter_score.flow",
+      "fullName": "net_promoter_score",
+      "id": "3015f000001LzaWAAS",
+      "lastModifiedById": "0055f000003xsg7AAA",
+      "lastModifiedByName": "Magalí Benitez",
+      "lastModifiedDate": "2021-10-20T14:48:23.000Z",
+      "manageableState": "unmanaged",
+      "type": "Flow"
+    },
+    {
+      "createdById": "0055f000003xsg7AAA",
+      "createdByName": "Magalí Benitez",
+      "createdDate": "2021-10-20T14:48:23.000Z",
+      "fileName": "flows/customer_satisfaction.flow",
+      "fullName": "customer_satisfaction",
+      "id": "3015f000001LzaXAAS",
+      "lastModifiedById": "0055f000003xsg7AAA",
+      "lastModifiedByName": "Magalí Benitez",
+      "lastModifiedDate": "2021-10-20T14:48:23.000Z",
+      "manageableState": "unmanaged",
+      "type": "Flow"
+    }
+  ]
+}

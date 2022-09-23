@@ -1,0 +1,97 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" controller="starwarsSearchController" >
+    <aura:attribute name="newContact" type="Contact"
+                    default="{ 'sobjectType': 'Contact',
+                             'Name': '',
+                             'LastName':'',
+                             'Altura__c': 0, 
+                             'Genero__c': '', 
+                             'Color_de_cabello__c': '',
+                             'Color_de_ojos__c': '', 
+                             'Planeta__c': '', 
+                             'Nro_de_Personaje__c': 0, 
+                             'URL__c': ''
+                             }"/>
+    <aura:attribute name="contacts" type="Contact[]"/>
+    <aura:attribute name="readOnlyList" type="List"
+                    default="[ 'true','true','true','','true','true','true','true'
+                             ]"/>
+    <lightning:layoutItem>
+        <div class="slds-p-horizontal_medium slds-size_6-of-12 slds-p-horizontal_medium">
+            <lightning:input
+                             aura:id="enter-search"
+                             name="enter-search"
+                             label="Please, enter a number of character"
+                             type="number"
+                             value=""
+                             />
+        </div>
+        <div class="slds-col slds-size_6-of-12 slds-p-horizontal_medium">
+            <!-- Botón Buscar -->
+            <br/>
+            <lightning:button aura:id="buscar" variant="brand" label="Search" title="Search" onclick="{!c.calloutController}" />
+        </div>
+        <br/>
+        <br/>
+    </lightning:layoutItem>
+    
+    <!-- Resultados de la búsqueda -->
+    <lightning:card title="Search results:">
+        <form class="slds-form_stacked">
+        <lightning:layoutItem aura:id="myCmp" class="slds-hidden">
+            <lightning:layoutItem>
+                <div class="slds-size_6-of-12 slds-p-horizontal_medium slds-form-element slds-float_left" >
+                    <label class="slds-form-element__label" >Name</label>
+                    <div class="slds-form-element__control">
+                        <input aura:id="peopleform" required="true" type="text" id="text-input-id-1" readonly="{!v.readOnlyList[0]}" placeholder="" class="slds-input" value="{!v.newContact.Name}" onchange="{!c.refreshN}" />
+                    </div>
+                    <label class="slds-form-element__label" for="text-input-id-2">Height</label>
+                    <div class="slds-form-element__control">
+                        <input aura:id="peopleform" required="true" type="number" id="text-input-id-2" readonly="{!v.readOnlyList[1]}" placeholder="" class="slds-input" value="{!v.newContact.Altura__c}" onchange="{!c.refreshA}" />
+                    </div>
+                    <label class="slds-form-element__label" for="text-input-id-3">Gender</label>
+                    <div class="slds-form-element__control">
+                        <input aura:id="peopleform" required="true" type="text" id="text-input-id-3" readonly="{!v.readOnlyList[2]}" placeholder="" class="slds-input" value="{!v.newContact.Genero__c}" onchange="{!c.refreshG}" />
+                    </div>
+                    
+                    <label class="slds-form-element__label" for="text-input-id-4">Hair color</label>
+                    <div class="slds-form-element__control"> 
+                        <input aura:id="peopleform" required="true" type="text" readonly="{!v.readOnlyList[3]}" id="text-input-id-4" placeholder="" class="slds-input" value="{!v.newContact.Color_de_cabello__c}" onchange="{!c.refreshCC}"/>
+                    </div> 
+                </div>
+                
+            </lightning:layoutItem>
+            <lightning:layoutItem>
+                <div class="slds-size_6-of-12 slds-p-horizontal_medium slds-form-element slds-float_right" >
+                    <label class="slds-form-element__label">Eye color</label>
+                    <div class="slds-form-element__control">
+                        <input aura:id="peopleform" required="true" type="text" id="text-input-id-5" readonly="{!v.readOnlyList[4]}" placeholder="" class="slds-input" value="{!v.newContact.Color_de_ojos__c}"  onchange="{!c.refreshCO}"/>
+                    </div>
+                    <label class="slds-form-element__label" >Planet</label>
+                    <div class="slds-form-element__control">
+                        <input aura:id="peopleform" required="true" type="text" id="text-input-id-6" readonly="{!v.readOnlyList[5]}" placeholder="" class="slds-input" value="{!v.newContact.Planeta__c}" onchange="{!c.refreshP}" />
+                    </div>
+                    <label class="slds-form-element__label">Character Nº</label>
+                    <div class="slds-form-element__control">
+                        <input aura:id="peopleform" required="true" type="number" id="text-input-id-7" readonly="{!v.readOnlyList[6]}" placeholder="" class="slds-input" value="{!v.newContact.Nro_de_Personaje__c}" onchange="{!c.refreshNP}" />
+                    </div>
+                    <label class="slds-form-element__label">URL</label>
+                    <div class="slds-form-element__control">
+                        <input aura:id="peopleform" required="true" type="URL" id="text-input-id-8" readonly="{!v.readOnlyList[7]}" placeholder="" class="slds-input" value="{!v.newContact.URL__c}" onchange="{!c.refreshURL}" />
+                    </div>
+                </div>
+            </lightning:layoutItem>
+            
+            <br/>
+            <br/>
+            
+            <!-- Botones de guardado o cancelar para una nueva búsqueda -->
+            <lightning:layoutItem> 
+                <div class="slds-size_6-of-12 slds-p-horizontal_medium ">
+                    <lightning:button variant="brand" label="Save" title="Save" onclick="{!c.clickCreate}"/>
+                    <lightning:button label="Cancel" title="Cancel" onclick="{!c.handleClick }"/>
+                </div>
+            </lightning:layoutItem>
+        </lightning:layoutItem>
+            </form>
+    </lightning:card>
+</aura:component>
